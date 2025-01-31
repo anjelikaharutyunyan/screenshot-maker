@@ -1,0 +1,302 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Main container for the file upload */
+#app {
+    width: 100%;
+    max-width: 600px;
+    /* Set a maximum width for the file upload container */
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* File buttons container */
+.files__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+/* Button styles */
+button,
+label {
+    cursor: pointer;
+}
+
+button:hover,
+label:hover {
+    background-color: #e0e0e0;
+}
+
+.button__text {
+    margin-left: 5px;
+}
+
+.button__icon {
+    fill: #fff;
+}
+
+/* Upload Files button */
+#fileSelector {
+    display: none;
+}
+
+#fileSelector+.files__buttons .button__text {
+    color: white;
+}
+
+#fileSelector+.files__buttons {
+    display: flex;
+    align-items: center;
+}
+
+/* Button styles for Upload Files */
+.files__button {
+    background-color: #1e90ff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.files__button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Clear Queue Button */
+.button_secondary {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.button_secondary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* File list container */
+.files__list-outer {
+    margin-top: 20px;
+    position: relative;
+}
+
+.files__list-inner {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.files__list-sortable {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Drop caption */
+.files__drop-caption {
+    margin-top: 10px;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+}
+
+.files__drop-caption p {
+    margin: 0;
+    color: #888;
+}
+
+/* File input */
+.files__input-files {
+    display: none;
+}
+
+/* Scroll buttons */
+.scroll-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.scroll-button__icon {
+    fill: #333;
+}
+
+.files__scroll-button_prev,
+.files__scroll-button_next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.files__scroll-button_prev {
+    left: 10px;
+}
+
+.files__scroll-button_next {
+    right: 10px;
+}
+
+/* Download All button */
+#downloadBtn {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+#downloadBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#fileCount {
+    margin-left: 10px;
+}
+
+/* Clear Queue button */
+#clearQueueBtn {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#clearQueueBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+#dropzone.hover {
+    background-color: #f0f0f0;
+    /* Change the background when hovering */
+}
+
+#dropzone svg {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    /* Control the size of the SVG if needed */
+    max-height: 200px;
+}
+
+/* Targeting all li elements in the list */
+.files__list-inner li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+/* Add hover effect to li items */
+.files__list-inner li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Specifically target li with data-filename containing 'Bill Copy.pdf' */
+.files__list-inner li[data-filename="Bill Copy.pdf"] {
+    background-color: #e0f7fa; /* Light cyan background */
+    font-weight: bold;
+    color: #00796b; /* Darker green text */
+}
+
+/* You can also target li elements with any 'data-filename' if needed */
+.files__list-inner li[data-filename] {
+    font-style: italic; /* Make file names italic */
+}
+
+#progressContainer {
+    margin-top: 20px;
+}
+
+.progress-bar-wrapper {
+    margin: 10px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar div {
+    height: 20px;
+    background-color: #4caf50;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+#progressContainer {
+    height: 300px;
+    overflow-y: auto; 
+    border: 1px solid #ccc;
+    padding: 10px; 
+    box-sizing: border-box; 
+    background-color: #f9f9f9; 
+}
+#loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    font-size: 1.5rem;
+    z-index: 9999; /* Ensure it appears above all other elements */
+}
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+    #app {
+        width: 90%;
+    }
+
+    .files__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
